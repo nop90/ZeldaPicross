@@ -68,7 +68,8 @@ void Text::handleEvent(Event* event) {
     }
     
     if (event->RETURN) {
-        next();
+		next();
+		event->TEXT=true;
     }
 }
 

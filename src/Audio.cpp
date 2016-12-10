@@ -123,8 +123,7 @@ void Audio::replayMusic() {
 }
 
 FMUSIC_MODULE* Audio::choixMusique(int id) {
-return NULL;
-
+return NULL; // nop90 - music disabled
     switch (id) {
         case 1 : return FMUSIC_LoadSong("romfs:/music/Plaine.ogg");
         case 2 : return FMUSIC_LoadSong("romfs:/music/Home.ogg");

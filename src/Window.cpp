@@ -103,7 +103,8 @@ void Window::loop() {
         
         gpGame->loop();
         
-        gpGame->draw(gpScreen2);
+//        gpGame->draw(gpScreen2);
+        gpGame->draw(gpScreen);
         
         
   /*
@@ -113,14 +114,16 @@ void Window::loop() {
             SDL_BlitSurface(gpScreen3, &src, gpScreen, &dst);
         } else {
 */
-            SDL_BlitSurface(gpScreen2, &src, gpScreen, &dst);
+//            SDL_BlitSurface(gpScreen2, &src, gpScreen, &dst);
 //        }
         
         SDL_Flip(gpScreen);
+
+// NOP90 - following commented trying to figure ot wy the images are flickering
         
-        if (SDL_GetTicks() < lastAnimTime + 20) {
-            SDL_Delay(lastAnimTime+20-SDL_GetTicks());
-        }
+//        if (SDL_GetTicks() < lastAnimTime + 20) {
+//            SDL_Delay(lastAnimTime+20-SDL_GetTicks());
+//        }
         lastAnimTime = SDL_GetTicks();
     
     }

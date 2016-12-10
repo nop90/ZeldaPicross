@@ -731,7 +731,7 @@ void Picross::handleEvent(Event* event) {
         cursorX++;
         if (cursorX > width - 1) cursorX = 0;
     }
-    if (event->ACTION || event->FLAG) {
+    if ((event->ACTION && !event->TEXT) || event->FLAG) {
         int stateX;
         int stateY;
         int w;
@@ -754,7 +754,7 @@ void Picross::handleEvent(Event* event) {
         for (int j = stateY; j < stateY + h; j++) {
             for (int i = stateX; i < stateX + w; i++) {
                 CellState& state = states[i][j];
-                if (event->ACTION) {
+                if (event->ACTION && !event->TEXT) {
                     if (state == EMPTY && toFill == EMPTY) {
                         if (hidden[i][j] == KO && (mode == NORMAL && !hypothese)) {
                             event->ERROR = true;
@@ -800,7 +800,7 @@ void Picross::handleEvent(Event* event) {
             }
             if (event->ERROR) break;
         }
-        if (event->ACTION) {
+        if (event->ACTION && !event->TEXT) {
             if (activ && !event->ERROR) {
                 if (w == 1 && h == 1) {
                     Audio::getInstance()->playSound(11);
@@ -824,7 +824,7 @@ void Picross::handleEvent(Event* event) {
         cursorStartY = -1;
         
         updateColor();
-        if ((event->ACTION || mode == LIBRE) && !hypothese) {
+        if (((event->ACTION && !event->TEXT)  || mode == LIBRE) && !hypothese) {
             checkVictory();
             if (victory) {
                 theme = Resources::getInstance()->getTheme(1);
@@ -844,7 +844,7 @@ void Picross::handleEvent(Event* event) {
         }
         
     }
-    if ((event->HOLD_ACTION || event->HOLD_FLAG) && cursorStartX==-1 && cursorStartY==-1) {
+    if ((event->HOLD_ACTION || event->HOLD_FLAG) && !event->TEXT && cursorStartX==-1 && cursorStartY==-1) {
         cursorStartX = cursorX;
         cursorStartY = cursorY;
     }
@@ -871,6 +871,9 @@ void Picross::handleEvent(Event* event) {
             Audio::getInstance()->replayMusic();
         }
     }
+   
+   if (event->ACTION && event->TEXT) event->TEXT=false; 
+ 
 }
 
 void Picross::handleMouseEvent(Event* event) {

@@ -290,23 +290,23 @@ const char *  SDL_GetError();
 #define SDLK_RETURN	KEY_A
 #define SDLK_w		KEY_A
 #define SDLK_x		KEY_B
-#define SDLK_h		KEY_B
-#define SDLK_ENTER	KEY_START
-#define SDLK_d 		KEY_SELECT
+#define SDLK_h		0//KEY_B
+#define SDLK_ENTER	0//KEY_START
+#define SDLK_d 		0//KEY_SELECT
 #define SDLK_LEFT	KEY_LEFT
 #define SDLK_RIGHT	KEY_RIGHT
 #define SDLK_UP		KEY_UP
 #define SDLK_DOWN	KEY_DOWN
 
-#define SDLK_BUTTON_LEFT	KEY_L
-#define SDLK_BUTTON_RIGHT	KEY_R
+#define SDLK_ESCAPE	KEY_START
+#define SDLK_F4 	KEY_SELECT
+#define KMOD_ALT 	KEY_START
 
-#define SDL_BUTTON_LEFT	KEY_L
-#define SDL_BUTTON_RIGHT	KEY_R
+#define SDLK_BUTTON_LEFT	0
+#define SDLK_BUTTON_RIGHT	0
 
-
-#define SDLK_ESCAPE	KEY_X
-#define SDLK_F4 	KEY_Y
+#define SDL_BUTTON_LEFT		0
+#define SDL_BUTTON_RIGHT	0
 
 #define SDLK_SPACE	0
 #define SDLK_TAB 	0
@@ -339,7 +339,6 @@ const char *  SDL_GetError();
 #define SDLK_NUMLOCK 0
 #define SDLK_SCROLLOCK 0
 
-#define KMOD_ALT 0
 #define KMOD_CTRL 0
 
 #define SDLK_0 0

@@ -47,6 +47,7 @@ CFLAGS	:=	-g -Wall -O2 -mword-relocations \
 			$(ARCH) 
 
 CFLAGS	+=	$(INCLUDE) -DARM11 -D_3DS
+#- -DDEBUG
 
 CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11 -findirect-inlining
 

@@ -224,32 +224,33 @@ printf("Load %s...",f);
 			int len = stb_vorbis_decode_filename(f, &channels, &freq, &buffer);
 			if (len<=0) {
 printf("ko\n");
+				if(buffer) free(buffer);
 				return NULL;
 			}
 			if(channels==2) {
-				SFX[i].data = (u8*) linearMemAlign(len *sizeof(s16), 0x80);
+				SFX[i].data = (u8*) linearMemAlign(len/2, 0x80);
 				if(!SFX[i].data) {
 					if(buffer) free(buffer);
 printf("ko\n");
 					return NULL;
 				}
-				for (scount=0;scount<len;scount++) 
-					((s16*)SFX[i].data)[scount]=buffer[scount*2];
+				for (scount=0;scount<len/2;scount++) 
+					SFX[i].data[scount]=buffer[scount*4]/256;
 			} else if (channels==1) {
-				SFX[i].data = (u8*) linearMemAlign(len*sizeof(s16), 0x80);
+				SFX[i].data = (u8*) linearMemAlign(len/2, 0x80);
 				if(!SFX[i].data) {
 					if(buffer) free(buffer);
 printf("ko\n");
 					return NULL;
 				}
-				for (scount=0;scount<len;scount++) 
-					((s16*)SFX[i].data)[scount]=buffer[scount];
+				for (scount=0;scount<len/2;scount++) 
+					SFX[i].data[scount]=buffer[scount*2]/256;
 			} else {
 				if(buffer) free(buffer);
 printf("ko\n");
 				return NULL;
 			}
-#if 0 // write on disk the decoded stream as raw pcm signed 16bit samples for debugging 
+#if 0 // write on disk the decoded stream as raw pcm signed 8bit samples for debugging 
 	char dumpbuf[255];
 	sprintf(dumpbuf, "dump%i.raw", dumpcount++);
 	if( buffer )
@@ -257,15 +258,15 @@ printf("ko\n");
 		FILE* pf = fopen( dumpbuf, "wb" );
 		if( pf )
 		{
-			fwrite( (u8*)SFX[i].data, 1, len*sizeof(s16), pf );
+			fwrite( (u8*)SFX[i].data, 1, len, pf );
 			fclose( pf );
 		}
 	}
 #endif
 			free(buffer);
-			SFX[i].size= len;
-			SFX[i].freq = freq;
-			SFX[i].format = SOUND_FORMAT_16BIT;
+			SFX[i].size= len/2;
+			SFX[i].freq = freq/2;
+			SFX[i].format = SOUND_FORMAT_8BIT;
 			SFX[i].used = true;
 			SFX[i].loop=false;
 printf("ok\n");

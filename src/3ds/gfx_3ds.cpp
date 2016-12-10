@@ -160,7 +160,7 @@ void SDL_FillRect(SDL_Surface* s, SDL_Rect* rect, u32 color)
 			sf2d_start_frame(GFX_TOP, GFX_LEFT);
 			drawing=true;
 		} 
-		if(rect) sf2d_draw_rectangle(rect->x+40*offset, rect->y, rect->w*scalewidth, rect->h, color);
+		if(rect) sf2d_draw_rectangle(rect->x*scalepos+40*offset, rect->y, rect->w*scalewidth, rect->h, color);
 		else  sf2d_draw_rectangle(40*offset, 0, 320 *scalepos, 240, color);
 	} else if (s->texture==(sf2d_texture*) 2)
 	{

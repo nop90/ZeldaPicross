@@ -29,12 +29,12 @@ To the 4th Floor
 To the 5th Floor
 To the Roof
 Tutorial : After completing all the picross from a map, improve your total time to earn a reward.
-Tutorial : Press Enter to solve the picross of the current box.
-Tutorial : Use the direction arrows to move the cursor, use W (or Z) to check a box and X to mark it as empty. *The numbers show you how many succesive boxes need to be checked on each line and column. **Every mistake will make you lose life and if you run out of hearts you'll be unable to continue the picross.
+Tutorial : Press A to solve the picross of the current box.
+Tutorial : Use the direction arrows to move the cursor, use A to check a box and B to mark it as empty. *The numbers show you how many succesive boxes need to be checked on each line and column. **Every mistake will make you lose life and if you run out of hearts you'll be unable to continue the picross.
 Tutorial : Use the direction arrows to move from box to box.
 Tutorial : Your time to solve the picross is limited. If you run out of time, you'll lose a heart and receive some additional time in return.
 Tutorial : Trying to complete lines by elimination is a good strategy : fill in the cases you are sure off.
-Tutorial : Don't forget to use X to mark the empty boxes, it will be a life saver.
+Tutorial : Don't forget to use B to mark the empty boxes, it will be a life saver.
 Tutorial : A bit harder picross to complete the tutorial.
 You'll need a sword to pass
 You'll need a bomb to pass

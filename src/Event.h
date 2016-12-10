@@ -36,6 +36,7 @@ struct Event {
     bool MOUSE_CANCEL_FLAG;
     bool MOUSE_ON_OFF;
     bool MUSIC_ON_OFF;
+    bool TEXT;
 };
 
 #endif  // Event.h
