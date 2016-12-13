@@ -127,7 +127,7 @@ void initSFX(FMUSIC_MODULE* s)
 	s->loop=false;
 }
 
-void load_SFX(FMUSIC_MODULE* s, const char* filename, u32 format)
+void loadSFX(FMUSIC_MODULE* s, const char* filename, u32 format)
 {
 	if(!s)return;
 
@@ -278,7 +278,22 @@ printf("ok\n");
 
 FMUSIC_MODULE* FMUSIC_LoadSong(const char * f)
 {
-	return FSOUND_Sample_Load(0, f,0, 0, 0);
+	int size;
+	int i;
+	for(i=0;i<NUMSFX;i++)
+	{
+		if(!SFX[i].used)
+		{
+			loadSFX(&SFX[i], f, SOUND_FORMAT_8BIT);
+			
+			if(!SFX[i].data) return NULL;
+			SFX[i].used = true;
+			SFX[i].loop=false;
+			SFX[i].freq=8000;
+			return &SFX[i];
+		}
+	}
+	return NULL;
 }
 
 void FSOUND_Close(){

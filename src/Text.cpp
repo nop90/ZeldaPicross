@@ -66,11 +66,12 @@ void Text::handleEvent(Event* event) {
             }
         }
     }
-    
+	
     if (event->RETURN) {
 		next();
 		event->TEXT=true;
     }
+
 }
 
 void Text::chercheText() {

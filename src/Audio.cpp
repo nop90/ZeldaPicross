@@ -123,26 +123,25 @@ void Audio::replayMusic() {
 }
 
 FMUSIC_MODULE* Audio::choixMusique(int id) {
-return NULL; // nop90 - music disabled
     switch (id) {
-        case 1 : return FMUSIC_LoadSong("romfs:/music/Plaine.ogg");
-        case 2 : return FMUSIC_LoadSong("romfs:/music/Home.ogg");
-        case 3 : return FMUSIC_LoadSong("romfs:/music/Lac.ogg");
-        case 4 : return FMUSIC_LoadSong("romfs:/music/Cocorico.ogg");
-        case 5 : return FMUSIC_LoadSong("romfs:/music/Mont.ogg");
-        case 6 : return FMUSIC_LoadSong("romfs:/music/BoisPerdus.ogg");
-        case 7 : return FMUSIC_LoadSong("romfs:/music/Jeu.ogg");
-        case 8 : return FMUSIC_LoadSong("romfs:/music/Chateau.ogg");
-        case 9 : return FMUSIC_LoadSong("romfs:/music/Boss.ogg");
-        case 10 : return FMUSIC_LoadSong("romfs:/music/DFinal.ogg");
-        case 11 : return FMUSIC_LoadSong("romfs:/music/BossF.ogg");
-        case 12 : return FMUSIC_LoadSong("romfs:/music/Zelda.ogg");
-        case 190 : return FMUSIC_LoadSong("romfs:/music/Selection.ogg");
-        case 195 : return FMUSIC_LoadSong("romfs:/music/Magasin.ogg");
-        case 200 : return FMUSIC_LoadSong("romfs:/music/Titre.ogg");
-        case 210 : return FMUSIC_LoadSong("romfs:/music/Debut.ogg");
-        case 220 : return FMUSIC_LoadSong("romfs:/music/Mort.ogg");
-        case 230 : return FMUSIC_LoadSong("romfs:/music/Fin.ogg");
-        default : return FMUSIC_LoadSong("romfs:/music/Plaine.ogg");
+        case 1 : return FMUSIC_LoadSong("romfs:/music/Plaine.raw");
+        case 2 : return FMUSIC_LoadSong("romfs:/music/Home.raw");
+        case 3 : return FMUSIC_LoadSong("romfs:/music/Lac.raw");
+        case 4 : return FMUSIC_LoadSong("romfs:/music/Cocorico.raw");
+        case 5 : return FMUSIC_LoadSong("romfs:/music/Mont.raw");
+        case 6 : return FMUSIC_LoadSong("romfs:/music/BoisPerdus.raw");
+        case 7 : return FMUSIC_LoadSong("romfs:/music/Jeu.raw");
+        case 8 : return FMUSIC_LoadSong("romfs:/music/Chateau.raw");
+        case 9 : return FMUSIC_LoadSong("romfs:/music/Boss.raw");
+        case 10 : return FMUSIC_LoadSong("romfs:/music/DFinal.raw");
+        case 11 : return FMUSIC_LoadSong("romfs:/music/BossF.raw");
+        case 12 : return FMUSIC_LoadSong("romfs:/music/Zelda.raw");
+        case 190 : return FMUSIC_LoadSong("romfs:/music/Selection.raw");
+        case 195 : return FMUSIC_LoadSong("romfs:/music/Magasin.raw");
+        case 200 : return FMUSIC_LoadSong("romfs:/music/Titre.raw");
+        case 210 : return FMUSIC_LoadSong("romfs:/music/Debut.raw");
+        case 220 : return FMUSIC_LoadSong("romfs:/music/Mort.raw");
+        case 230 : return FMUSIC_LoadSong("romfs:/music/Fin.raw");
+        default : return FMUSIC_LoadSong("romfs:/music/Plaine.raw");
     }
 }
