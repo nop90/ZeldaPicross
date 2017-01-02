@@ -31,7 +31,10 @@ void endBottomFrame(void)
 void SDL_Flip(void * p)
 {
 	endTopFrame();
-	endBottomFrame();
+//	endBottomFrame();
+	sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
+	sf2d_draw_rectangle(0, 0, 320, 240, RGBA8(0, 0, 0, 0xff));
+	sf2d_end_frame();
 	sf2d_swapbuffers();
 }
 

@@ -79,14 +79,6 @@ int SDL_PollEvent(SDL_Event * event)
 		eventstate++;
 		eventbit=0;
 
-// code to test SDL_QUIT event in emulator. remove in the release build
-/*	if (hidKeysHeld() & KEY_L) 
-	{
-		event->type=SDL_QUIT;
-		eventstate=5;
-		return 1;
-	}
-*/
 		if(!aptMainLoop())
 		{
 			event->type=SDL_QUIT;
@@ -258,9 +250,9 @@ static void task_apt_hook(APT_HookType hook, void* param) {
 			csndExecCmds(0);
 			muspaused=1;
             break;
-//        case APTHOOK_ONSLEEP:
-//            svcClearEvent(task_pause_event);
-//            break;
+        case APTHOOK_ONSLEEP:
+            svcClearEvent(task_pause_event);
+            break;
         default:
             break;
     }
